@@ -42,21 +42,21 @@ pub(crate) fn inner<C: Class, T: Clone>(arg: &Option<Instance<C>>, field: fn(&C)
     arg.as_ref().map(|i| i.with(|c| field(c).clone()))
 }
 
-wrapper!(/** Bytes held by Skia. */ SkData(Data));
-wrapper!(/** A matrix: 3 rows of 3 numbers. */ SkMatrix(Matrix));
-wrapper!(/** A shader: the color of each pixel. */ SkShader(Shader));
-wrapper!(/** A filter of colors. */ SkColorFilter(skia_safe::ColorFilter));
-wrapper!(/** A filter of what is drawn. */ SkImageFilter(ImageFilter));
-wrapper!(/** A filter of a drawing's coverage. */ SkMaskFilter(MaskFilter));
-wrapper!(/** An effect on a path. */ SkPathEffect(PathEffect));
-wrapper!(/** An image. */ SkImage(Image));
-wrapper!(/** Recorded drawing. */ SkPicture(Picture));
-wrapper!(/** A typeface. */ SkTypeface(Typeface));
-wrapper!(/** The fonts of the system. */ SkFontMgr(FontMgr));
-wrapper!(/** A typeface at a size. */ SkFont(Font));
-wrapper!(/** Positioned glyphs. */ SkTextBlob(TextBlob));
-wrapper!(/** A mesh. */ SkVertices(Vertices));
-wrapper!(/** An SVG document. */ SkSvg(svg::Dom));
+wrapper! { /** Bytes held by Skia. */ SkData(Data) }
+wrapper! { /** A matrix: 3 rows of 3 numbers. */ SkMatrix(Matrix) }
+wrapper! { /** A shader: the color of each pixel. */ SkShader(Shader) }
+wrapper! { /** A filter of colors. */ SkColorFilter(skia_safe::ColorFilter) }
+wrapper! { /** A filter of what is drawn. */ SkImageFilter(ImageFilter) }
+wrapper! { /** A filter of a drawing's coverage. */ SkMaskFilter(MaskFilter) }
+wrapper! { /** An effect on a path. */ SkPathEffect(PathEffect) }
+wrapper! { /** An image. */ SkImage(Image) }
+wrapper! { /** Recorded drawing. */ SkPicture(Picture) }
+wrapper! { /** A typeface. */ SkTypeface(Typeface) }
+wrapper! { /** The fonts of the system. */ SkFontMgr(FontMgr) }
+wrapper! { /** A typeface at a size. */ SkFont(Font) }
+wrapper! { /** Positioned glyphs. */ SkTextBlob(TextBlob) }
+wrapper! { /** A mesh. */ SkVertices(Vertices) }
+wrapper! { /** An SVG document. */ SkSvg(svg::Dom) }
 
 #[class]
 impl SkData {
@@ -1019,7 +1019,7 @@ impl SkRuntimeEffect {
     }
 }
 
-wrapper!(/** Sets a program's uniforms by name. */ SkRuntimeShaderBuilder(skia_safe::runtime_effect::RuntimeShaderBuilder));
+wrapper! { /** Sets a program's uniforms by name. */ SkRuntimeShaderBuilder(skia_safe::runtime_effect::RuntimeShaderBuilder) }
 
 #[class]
 impl SkRuntimeShaderBuilder {

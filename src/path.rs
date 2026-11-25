@@ -20,7 +20,7 @@ pub(crate) fn bad(what: &'static str) -> impl FnOnce() -> String {
     move || format!("Skia made no {what}: an argument is out of its range")
 }
 
-wrapper!(/** A path (immutable: make one with `Skia.PathBuilder`). */ SkPath(Path));
+wrapper! { /** A path (immutable: make one with `Skia.PathBuilder`). */ SkPath(Path) }
 
 fn some(path: Option<Path>) -> Option<Instance<SkPath>> {
     path.map(|p| Instance::new(p.into()))
