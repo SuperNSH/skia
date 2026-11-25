@@ -21,7 +21,7 @@ small helpers (`tsx/types.ts`, `tsx/components.tsx`, `tsx/Skia.ts`) are copied o
 ## rust-skia
 
 `vendor/skia-bindings` and `vendor/skia-safe` are [rust-skia](https://github.com/rust-skia/rust-skia) 0.157.0 (MIT), without their tests and
-examples, and with `build_support/private_symbols.rs` added. Their licence: `vendor/LICENSE-rust-skia`.
+examples, with `build_support/private_symbols.rs` added and bindgen at 0.72. Their licence: `vendor/LICENSE-rust-skia`.
 
 ## Linked, not copied
 

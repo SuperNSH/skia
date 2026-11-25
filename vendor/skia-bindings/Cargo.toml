@@ -110,8 +110,9 @@ version = "2"
 features = ["with_simd"]
 optional = true
 
+# nsh-skia: 0.73 takes syn 2 or 3 beside prettyplease 0.2 or 0.3, and a lock file can mix them.
 [build-dependencies.bindgen]
-version = "0.73.2"
+version = "0.72.1"
 
 [build-dependencies.cc]
 version = "1.1.28"

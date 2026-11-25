@@ -136,21 +136,21 @@ fn rsxform(value: JsIn<'_>) -> Result<RSXform, PropError> {
     Ok(RSXform::new(num(value, "scos")?, num(value, "ssin")?, (num(value, "tx")?, num(value, "ty")?)))
 }
 
-input!(/** A point. */ Pt(Point), "{ readonly x: number; readonly y: number }", point);
-input!(/** A rectangle. */ RectArg(Rect), "{ readonly x: number; readonly y: number; readonly width: number; readonly height: number }", rect);
-input!(/** A rounded rectangle, or a rectangle. */ RRectArg(RRect), "{ readonly rect: { readonly x: number; readonly y: number; readonly width: number; readonly height: number }; readonly rx?: number; readonly ry?: number } | { readonly x: number; readonly y: number; readonly width: number; readonly height: number }", rrect);
-input!(/** A color. */ ColorArg(Color4f), "string | number | readonly number[] | Float32Array", color);
-input!(/** Colors. */ Colors(Vec<Color4f>), "readonly (string | number | readonly number[] | Float32Array)[]", |v| list(v, color));
-input!(/** Points. */ Points(Vec<Point>), "readonly { readonly x: number; readonly y: number }[] | Float32Array", points);
-input!(/** Rectangles. */ Rects(Vec<Rect>), "readonly { readonly x: number; readonly y: number; readonly width: number; readonly height: number }[]", |v| list(v, rect));
-input!(/** Rotations, scales and translations. */ Transforms(Vec<RSXform>), "readonly { readonly scos: number; readonly ssin: number; readonly tx: number; readonly ty: number }[]", |v| list(v, rsxform));
-input!(/** A matrix. */ MatrixArg(Matrix), "SkMatrix | readonly number[] | Float32Array", matrix);
-input!(/** Numbers. */ Floats(Vec<f32>), "readonly number[] | Float32Array", |v| {
+input! { /** A point. */ Pt(Point), "{ readonly x: number; readonly y: number }", point }
+input! { /** A rectangle. */ RectArg(Rect), "{ readonly x: number; readonly y: number; readonly width: number; readonly height: number }", rect }
+input! { /** A rounded rectangle, or a rectangle. */ RRectArg(RRect), "{ readonly rect: { readonly x: number; readonly y: number; readonly width: number; readonly height: number }; readonly rx?: number; readonly ry?: number } | { readonly x: number; readonly y: number; readonly width: number; readonly height: number }", rrect }
+input! { /** A color. */ ColorArg(Color4f), "string | number | readonly number[] | Float32Array", color }
+input! { /** Colors. */ Colors(Vec<Color4f>), "readonly (string | number | readonly number[] | Float32Array)[]", |v| list(v, color) }
+input! { /** Points. */ Points(Vec<Point>), "readonly { readonly x: number; readonly y: number }[] | Float32Array", points }
+input! { /** Rectangles. */ Rects(Vec<Rect>), "readonly { readonly x: number; readonly y: number; readonly width: number; readonly height: number }[]", |v| list(v, rect) }
+input! { /** Rotations, scales and translations. */ Transforms(Vec<RSXform>), "readonly { readonly scos: number; readonly ssin: number; readonly tx: number; readonly ty: number }[]", |v| list(v, rsxform) }
+input! { /** A matrix. */ MatrixArg(Matrix), "SkMatrix | readonly number[] | Float32Array", matrix }
+input! { /** Numbers. */ Floats(Vec<f32>), "readonly number[] | Float32Array", |v| {
     floats(v)?.ok_or_else(|| v.expected("numbers"))
-});
-input!(/** Bytes. */ Bytes(Vec<u8>), "ArrayBuffer | ArrayBufferView", |v| {
+} }
+input! { /** Bytes. */ Bytes(Vec<u8>), "ArrayBuffer | ArrayBufferView", |v| {
     v.as_buffer().ok_or_else(|| v.expected("an ArrayBuffer or a typed array"))
-});
+} }
 
 /// A point, given.
 #[derive(Debug, Clone, Copy, PartialEq, JsObject)]
