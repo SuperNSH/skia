@@ -5,7 +5,7 @@ Goal: react-native-skia's API for Native Shell (NSH) apps, on `skia-safe`. Refer
 ## Toolchain
 
 - NSH is the **release 0.7.1**, its CLI kept inside the checkout at `./.nsh-cli/bin/nsh` (ignored by git): `cargo install --locked nsh-cli --version 0.7.1 --root .nsh-cli`, as `.github/workflows/ci.yml` does. Never `nsh update`; export `NSH_HOME="$PWD/.nsh-home"` (the `justfile` does both). Do not use another `nsh` on `PATH`.
-- Every `nsh-*` crate is from crates.io: `nsh-core = "0.7.0"` (caret; the `Cargo.lock`s resolve 0.7.1). Read NSH's source at the tag `v0.7.1` on GitHub, or in Cargo's registry (`cargo metadata --format-version 1` gives the path).
+- Every `nsh-*` crate is from crates.io: `nsh-core = "0.7.1"`. Read NSH's source at the tag `v0.7.1` on GitHub, or in Cargo's registry (`cargo metadata --format-version 1` gives the path).
 - `vendor/` is rust-skia 0.157.0 with one addition (docs/architecture.md "Engine"). Keep it when moving to another version, and run the gallery in a Linux window: headless tests do not link GTK.
 - `skia-safe`'s features in `Cargo.toml` are sets rust-skia publishes binaries for. Check its release's assets before changing one.
 

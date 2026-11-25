@@ -5,6 +5,6 @@ edition = "2024"
 publish = false
 
 [dependencies]
-nsh-core = "0.7.0"
+nsh-core = "0.7.1"
 
 [workspace]
