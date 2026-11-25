@@ -1,0 +1,7 @@
+ info macOS js STAT macos: 59.9 frames/s per moving canvas, CPU 31%
+ info macOS js STAT macos: 59.9 frames/s per moving canvas, CPU 31%
+ info macOS js STAT macos: 59.9 frames/s per moving canvas, CPU 29%
+ info macOS js STAT macos: 59.9 frames/s per moving canvas, CPU 29%
+ info macOS js STAT macos: 57.6 frames/s per moving canvas, CPU 30%
+ info macOS js STAT macos: 59.3 frames/s per moving canvas, CPU 28%
+ info macOS js STAT macos: 60.0 frames/s per moving canvas, CPU 30%

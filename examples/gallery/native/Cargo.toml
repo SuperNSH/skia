@@ -1,0 +1,19 @@
+[package]
+name = "skia-gallery-native"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+nsh-core = { git = "https://github.com/longbridge/nsh", rev = "2964346c285f57004f2531fb768cc9840b8d7ff5" }
+
+# Evidence only (src/capture.rs): the app's own window as raw pixels.
+[target.'cfg(target_os = "macos")'.dependencies]
+objc2 = "0.6"
+objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSArray", "NSEnumerator", "NSGeometry"] }
+objc2-core-foundation = { version = "0.3", default-features = false, features = ["std", "CFCGTypes"] }
+objc2-app-kit = { version = "0.3", default-features = false, features = ["std", "NSResponder", "NSWindow", "NSApplication", "objc2-core-foundation"] }
+dispatch2 = "0.3"
+skia-safe = { path = "../../../vendor/skia-safe", features = ["ganesh", "metal", "svg", "textlayout", "webp"] }
+
+[workspace]

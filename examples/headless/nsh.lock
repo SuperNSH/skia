@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "packages": [
+    {
+      "name": "nsh-skia",
+      "version": "0.1.0",
+      "path": "../..",
+      "module": "nsh-skia/native",
+      "exports": {
+        "nsh-skia": "tsx/index.tsx"
+      }
+    }
+  ]
+}

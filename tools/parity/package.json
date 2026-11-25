@@ -1,0 +1,12 @@
+{
+  "name": "nsh-skia-parity",
+  "private": true,
+  "type": "module",
+  "description": "Draws examples/parity's scenes with react-native-skia on CanvasKit and compares them with nsh-skia's.",
+  "dependencies": {
+    "canvaskit-wasm": "0.41.1",
+    "esbuild": "0.25.0",
+    "react": "19.3.0",
+    "react-reconciler": "0.33.0"
+  }
+}

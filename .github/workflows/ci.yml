@@ -1,0 +1,73 @@
+name: CI
+
+# The gates of AGENTS.md with the NSH nightly the crate is pinned to. Actions are pinned by commit.
+
+on:
+  push:
+    branches: [master, "ci/**"]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+defaults:
+  run:
+    shell: bash
+
+env:
+  CARGO_TERM_COLOR: always
+  CARGO_INCREMENTAL: 0
+  NSH_COMMIT: 2964346c285f57004f2531fb768cc9840b8d7ff5
+
+jobs:
+  gates:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [macos-latest, ubuntu-24.04]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install GTK 4 and what Skia links
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang pkg-config libgtk-4-dev libwebkitgtk-6.0-dev libclang-dev \
+            libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev libzstd-dev libssl-dev libasound2-dev \
+            libgl-dev libegl-dev libgles-dev libwayland-dev libx11-dev libfontconfig1-dev libfreetype-dev fonts-dejavu
+      - uses: dtolnay/rust-toolchain@df2a88e9fe4098bad09cb42c3dec7187f15861fc # master
+        with:
+          toolchain: stable
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@d1527c8f67ef9af357290475d4af4b0fab8f12e0 # v2.9.3
+        with:
+          workspaces: |
+            .
+            examples/headless/native
+            examples/parity/native
+      - run: cargo fmt -- --check
+      - run: cargo clippy --all-targets -- -D warnings
+      - run: echo "NSH_HOME=$RUNNER_TEMP/nsh-home" >> "$GITHUB_ENV"
+      - uses: actions/cache@55cc8345863c7cc4c66a329aec7e433d2d1c52a9 # v6.1.0
+        with:
+          path: ${{ runner.temp }}/nsh-src
+          key: nsh-src-${{ runner.os }}-${{ env.NSH_COMMIT }}
+      - name: Build the CLI at NSH_COMMIT
+        run: |
+          src="$RUNNER_TEMP/nsh-src"
+          if [ ! -x "$src/target/release/nsh" ]; then
+            rm -rf "$src"
+            git clone --filter=blob:none https://github.com/longbridge/nsh "$src"
+            git -C "$src" checkout --detach "$NSH_COMMIT"
+            cargo build --release --locked -p nsh-cli --manifest-path "$src/Cargo.toml"
+          fi
+          echo "$src/target/release" >> "$GITHUB_PATH"
+      - run: cd examples/headless && nsh check && nsh test
+      - run: cd examples/parity && nsh check && nsh test

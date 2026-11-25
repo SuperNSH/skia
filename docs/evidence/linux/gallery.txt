@@ -1,0 +1,15 @@
+Ubuntu 24.04 arm64 container, GTK 4.14, llvmpipe. X11 (Xvfb, openbox):
+ info Linux js STAT linux: 50.9 frames/s per moving canvas, CPU 252%
+ info Linux js STAT linux: 50.6 frames/s per moving canvas, CPU 248%
+ info Linux js STAT linux: 53.3 frames/s per moving canvas, CPU 262%
+ info Linux js STAT linux: 53.4 frames/s per moving canvas, CPU 252%
+ info Linux js STAT linux: 53.6 frames/s per moving canvas, CPU 251%
+Wayland (weston headless, GL renderer):
+ info Linux js STAT linux: 35.9 frames/s per moving canvas, CPU 185%
+ info Linux js STAT linux: 35.0 frames/s per moving canvas, CPU 186%
+ info Linux js STAT linux: 33.5 frames/s per moving canvas, CPU 179%
+ info Linux js STAT linux: 31.3 frames/s per moving canvas, CPU 181%
+ info Linux js STAT linux: 32.5 frames/s per moving canvas, CPU 171%
+nsh test:
+✓ 17 tests: 17 passed, 0 failed (16.0s)
+✓ 1 test: 1 passed, 0 failed (15.0s)

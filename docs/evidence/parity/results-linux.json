@@ -1,0 +1,238 @@
+{
+ "shapes": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "strokes": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "fillType": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "transforms": {
+  "max": 1,
+  "mean": 0.044,
+  "over16": 0
+ },
+ "opacity": {
+  "max": 1,
+  "mean": 0.071,
+  "over16": 0
+ },
+ "inherit": {
+  "max": 1,
+  "mean": 0,
+  "over16": 0
+ },
+ "zIndex": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "linear": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "radial": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "sweep": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "conical": {
+  "max": 1,
+  "mean": 0,
+  "over16": 0
+ },
+ "gradientTransform": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "noise": {
+  "max": 1,
+  "mean": 0.419,
+  "over16": 0
+ },
+ "turbulence": {
+  "max": 1,
+  "mean": 0.242,
+  "over16": 0
+ },
+ "sksl": {
+  "max": 1,
+  "mean": 0.263,
+  "over16": 0
+ },
+ "skslChildren": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "blendShaders": {
+  "max": 1,
+  "mean": 0.395,
+  "over16": 0
+ },
+ "blendModes": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "imageFits": {
+  "max": 1,
+  "mean": 0,
+  "over16": 0
+ },
+ "imageShader": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "blur": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "blurClamp": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "blurMask": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "shadows": {
+  "max": 2,
+  "mean": 0.026,
+  "over16": 0
+ },
+ "box": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "morphology": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "displacement": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "blendFilters": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "offset": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "colorMatrix": {
+  "max": 1,
+  "mean": 0.269,
+  "over16": 0
+ },
+ "colorNested": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "lerp": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "pathEffects": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "pathCompose": {
+  "error": "Error: Not implemented on React Native Web"
+ },
+ "clips": {
+  "max": 1,
+  "mean": 0.002,
+  "over16": 0
+ },
+ "layer": {
+  "max": 1,
+  "mean": 0.013,
+  "over16": 0
+ },
+ "paints": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "mask": {
+  "max": 1,
+  "mean": 0.001,
+  "over16": 0
+ },
+ "luminance": {
+  "max": 1,
+  "mean": 0.007,
+  "over16": 0
+ },
+ "maskNoClip": {
+  "max": 1,
+  "mean": 0.002,
+  "over16": 0
+ },
+ "backdrop": {
+  "max": 1,
+  "mean": 0.097,
+  "over16": 0
+ },
+ "backdropFilter": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "vertices": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "fan": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "patch": {
+  "max": 1,
+  "mean": 0.068,
+  "over16": 0
+ },
+ "atlas": {
+  "max": 1,
+  "mean": 0,
+  "over16": 0
+ },
+ "fitbox": {
+  "max": 0,
+  "mean": 0,
+  "over16": 0
+ },
+ "runtimeFilter": {
+  "error": "Error: Not implemented on React Native Web"
+ }
+}

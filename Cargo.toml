@@ -1,0 +1,54 @@
+[package]
+name = "nsh-skia"
+description = "Skia for Native Shell (NSH) apps: the react-native-skia API on skia-safe."
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.97"
+license = "MIT"
+repository = "https://github.com/SuperNSH/skia"
+keywords = ["nshm", "skia", "graphics", "canvas", "nsh"]
+categories = ["graphics", "gui"]
+readme = "README.md"
+# NSH is a Git dependency pinned to a commit, which crates.io refuses.
+publish = false
+include = ["/Cargo.toml", "/nsh.json", "/src", "/tsx", "/vendor", "/README.md", "/LICENSE", "/NOTICE.md"]
+
+[workspace]
+resolver = "3"
+exclude = ["examples", "vendor"]
+
+[lints.rust]
+missing_docs = "warn"
+
+[lints.clippy]
+# The API's own signatures.
+too_many_arguments = "allow"
+new_without_default = "allow"
+
+[dependencies]
+# NSH at the nightly's commit (AGENTS.md "Toolchain").
+nsh-core = { git = "https://github.com/longbridge/nsh", rev = "2964346c285f57004f2531fb768cc9840b8d7ff5" }
+
+# rust-skia 0.157.0, vendored for one change: on Linux Skia's HarfBuzz and libwebp get names of their own
+# (vendor/skia-bindings/build_support/private_symbols.rs).
+# The feature sets below are ones rust-skia publishes binaries for: any other
+# set makes cargo build Skia from source.
+[target.'cfg(any(target_os = "macos", target_os = "ios"))'.dependencies]
+skia-safe = { path = "vendor/skia-safe", features = ["ganesh", "metal", "svg", "textlayout", "webp"] }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+skia-safe = { path = "vendor/skia-safe", features = ["ganesh", "gl", "egl", "wayland", "x11", "vulkan", "skottie", "svg", "textlayout", "webp"] }
+nsh-platform-linux = { git = "https://github.com/longbridge/nsh", rev = "2964346c285f57004f2531fb768cc9840b8d7ff5", default-features = false }
+
+[target.'cfg(any(target_os = "android", windows))'.dependencies]
+skia-safe = { path = "vendor/skia-safe", features = ["ganesh", "vulkan", "svg", "textlayout", "webp"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+nsh-platform-macos = { git = "https://github.com/longbridge/nsh", rev = "2964346c285f57004f2531fb768cc9840b8d7ff5", default-features = false }
+objc2 = "0.6"
+objc2-foundation = { version = "0.3", default-features = false, features = ["std", "NSGeometry", "NSNotification", "NSObject", "NSString"] }
+objc2-core-foundation = { version = "0.3", default-features = false, features = ["std", "CFCGTypes", "CFString"] }
+objc2-core-graphics = { version = "0.3", default-features = false, features = ["std", "CGColorSpace"] }
+objc2-metal = { version = "0.3", default-features = false, features = ["std", "MTLDevice", "MTLCommandQueue", "MTLCommandBuffer", "MTLPixelFormat", "MTLDrawable", "MTLTexture", "MTLResource"] }
+objc2-quartz-core = { version = "0.3", default-features = false, features = ["std", "CALayer", "CAMetalLayer", "objc2-core-foundation", "objc2-core-graphics", "objc2-metal"] }
+objc2-app-kit = { version = "0.3", default-features = false, features = ["std", "NSResponder", "NSView", "NSWindow", "NSScreen", "objc2-core-foundation", "objc2-quartz-core"] }

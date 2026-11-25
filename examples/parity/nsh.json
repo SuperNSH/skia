@@ -1,0 +1,8 @@
+{
+  "name": "Skia Parity",
+  "id": "com.example.skiaparity",
+  "version": "1.0.0",
+  "build": 1,
+  "dependencies": { "nsh-skia": { "path": "../.." } },
+  "rust": "native"
+}
