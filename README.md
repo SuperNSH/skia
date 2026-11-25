@@ -6,7 +6,7 @@ The same names: `<Canvas>` and its components (`<Circle>`, `<Path>`, `<LinearGra
 
 ## Status
 
-**0.1.0, on GitHub (not on crates.io). macOS and Linux.** It needs the NSH nightly `2964346`, not the 0.6.0 release.
+**0.1.0, on GitHub (not on crates.io). macOS and Linux.** It needs NSH 0.7.
 
 | Platform | Canvas | Checked |
 |---|---|---|
@@ -21,15 +21,13 @@ Not covered: text in that comparison (system fonts differ), a real Linux GPU, x8
 
 ## Install
 
-Rust, and the NSH nightly built from `2964346`. Then, in the app's directory:
+Rust, and NSH 0.7. Then, in the app's directory:
 
 ```sh
 nsh add github:SuperNSH/skia
 # or, from a clone
 nsh add --path ../skia
 ```
-
-With a CLI built from source the app also needs a crate of its own pinned to that commit: copy `examples/headless/native` into the app as `native/` and add `"rust": "native"` to `nsh.json`.
 
 Skia comes prebuilt from rust-skia's releases (18 MB on macOS, 26 MB on Linux) when the crate is built (`vendor/` holds its two crates, for one change: see docs/architecture.md); it adds about 17 to 20 MB to an app. On Linux the build needs `libgl-dev libegl-dev libgles-dev libwayland-dev libx11-dev libfontconfig1-dev libfreetype-dev` beside NSH's own packages, and glibc 2.35 or newer.
 

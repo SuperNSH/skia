@@ -1,4 +1,4 @@
 {
-  "nsh": ">=0.6",
+  "nsh": ">=0.7",
   "exports": { "nsh-skia": "tsx/index.tsx" }
 }

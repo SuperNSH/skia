@@ -1,4 +1,4 @@
-//! Pins nsh's crates at the nightly's commit (AGENTS.md "Toolchain"), and the gallery's evidence: CPU time, and the
+//! Uses nsh's crates at 0.7 (AGENTS.md "Toolchain"), and the gallery's evidence: CPU time, and the
 //! app's own window as a PNG.
 use nsh_core::prelude::*;
 

@@ -33,4 +33,4 @@ nsh-webgpu is not used. Its Linux canvas reads every frame back through the CPU,
 
 ## Pins
 
-Every `nsh-*` crate is the nightly's commit, and so must the CLI be: two copies of `nsh-core` do not type-check. Moving NSH moves them together (`Cargo.toml`, `examples/*/native/Cargo.toml`, AGENTS.md, CI).
+Every `nsh-*` crate is the same NSH release, and so must the CLI be: two copies of `nsh-core` do not type-check. Moving NSH moves them together (`Cargo.toml`, `examples/*/native/Cargo.toml`, AGENTS.md, CI).

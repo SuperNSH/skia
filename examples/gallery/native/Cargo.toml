@@ -5,7 +5,7 @@ edition = "2024"
 publish = false
 
 [dependencies]
-nsh-core = { git = "https://github.com/longbridge/nsh", rev = "2964346c285f57004f2531fb768cc9840b8d7ff5" }
+nsh-core = "0.7.0"
 
 # Evidence only (src/capture.rs): the app's own window as raw pixels.
 [target.'cfg(target_os = "macos")'.dependencies]

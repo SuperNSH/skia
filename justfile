@@ -1,8 +1,8 @@
-# nsh is the nightly kept in this repository, never the one on PATH.
+# nsh is the 0.7.1 release kept in this repository, never the one on PATH.
 
 set shell := ["bash", "-euo", "pipefail", "-c"]
 
-nsh := justfile_directory() / ".nsh-nightly/nsh/bin/nsh"
+nsh := justfile_directory() / ".nsh-cli/bin/nsh"
 export NSH_HOME := justfile_directory() / ".nsh-home"
 
 # List the recipes.
